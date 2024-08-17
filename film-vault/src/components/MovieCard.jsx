@@ -1,10 +1,13 @@
 import React from 'react'
 
-function MovieCard() {
+function MovieCard({poster_path, name}) {
   return (
-    <div className='h-[40vh] w-[200px] bg-center bg-cover rounded-xl hover:scale-110 duration-300 hover:cursor-pointer flex flex-col justify-between items-end' style= {{backgroundImage : 
-    `url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGDCkH1cw0Yhh4lXQKxwc2omBaJR0tSc4eqw&s)`}}>
+    <div className='h-[50vh] w-[200px] bg-center bg-cover rounded-xl hover:scale-110 duration-300 hover:cursor-pointer flex flex-col justify-between items-end' style= {{backgroundImage : 
+    `url(https://image.tmdb.org/t/p/original/${poster_path})`}}>
 
+      <div  className='text-white text-center p-2 text-xl w-full bg-gray-900/60'>
+        {name}
+      </div>
     </div>
   )
 }
