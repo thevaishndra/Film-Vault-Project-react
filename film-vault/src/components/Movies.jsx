@@ -8,7 +8,7 @@ function Movies() {
 const [movies, setMovies] = useState([])
 
   useEffect( () => {
-    axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=efa80e823aef8f7f5ec5494be36854d6&language=en-US&page=2`).then(function(res){
+    axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=efa80e823aef8f7f5ec5494be36854d6&language=en-US&page=${pageNo}`).then(function(res){
       console.log(res.data.results)
       setMovies(res.data.results)
     })
@@ -21,7 +21,7 @@ const [movies, setMovies] = useState([])
         </div>
 
         <div className='flex flex-row flex-wrap justify-around gap-4 m-3'>
-          {movies.map((movieObj) =>  {
+        {movies.map((movieObj) =>  {
             return <MovieCard poster_path={movieObj.poster_path} name={movieObj.original_title}/>
           })}
           
