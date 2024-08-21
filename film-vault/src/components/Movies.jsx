@@ -6,13 +6,26 @@ import Pagination from './Pagination'
 
 function Movies() {
 const [movies, setMovies] = useState([])
+const [pageNo, setPageNo] = useState(1)
 
+const handlePrev = () => {
+  if(pageNo === 1) {
+    setPageNo(pageNo)
+  }
+  else {
+    setPageNo(pageNo - 1)
+  }
+}
+
+const handleNext = () => {
+  setPageNo(pageNo + 1)
+}
   useEffect( () => {
     axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=efa80e823aef8f7f5ec5494be36854d6&language=en-US&page=${pageNo}`).then(function(res){
       console.log(res.data.results)
       setMovies(res.data.results)
     })
-  }, [])
+  }, [pageNo])
 
   return (
     <div className= 'p-5'>
@@ -27,7 +40,7 @@ const [movies, setMovies] = useState([])
           
         </div>
         
-        <Pagination/>
+        <Pagination pageNo={pageNo} handleNext={handleNext} handlePrev={handlePrev} />
     </div>
   )
 }
