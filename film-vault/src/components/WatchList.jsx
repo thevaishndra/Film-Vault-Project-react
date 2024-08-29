@@ -4,7 +4,7 @@ function WatchList() {
   return (
     <>
     <div className='flex justify-center flex-wrap m-3'>
-      <div className='bg-lime-400 items-center flex justify-center h-[3rem] w-[8rem] rounded-xl text-white font-bold mx-4'>Comedy</div>
+      <div className='bg-blue-300 items-center flex justify-center h-[3rem] w-[8rem] rounded-xl text-white font-bold mx-4'>Comedy</div>
       <div className='bg-gray-300 items-center flex justify-center h-[3rem] w-[8rem] rounded-xl text-white font-bold'>Comedy</div>
     </div>
 
