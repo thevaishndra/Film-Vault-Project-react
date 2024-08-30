@@ -1,6 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function WatchList({watchlist}) {
+  const [search, setSearch] = useState('')
+
+  let handleSearch = ()=> {
+
+  }
+
+
+
+
+
+
+
   return (
     <>
     <div className='flex justify-center flex-wrap m-3'>
@@ -24,10 +36,12 @@ function WatchList({watchlist}) {
         </thead>
 
         <tbody>
-          {watchlist.map((movieObj) => {
+          {watchlist.filter((movieObj) => {
+            return movieObj.title.toLowerCase().includes(search.toLocaleLowerCase())
+          }).map((movieObj) => {
             return  <tr className='border-b-2'>
             <td className='flex items-center px-6 py-4'>
-              <img className='h-[6rem] w-[10rem]' src={`url(https://image.tmdb.org/t/p/original/${movieObj.poster_path})`} />
+              <img className='h-[6rem] w-[10rem]' src={`https://image.tmdb.org/t/p/original/${movieObj.poster_path}`} />
               <div className='mx-10'>{movieObj.title}</div>
             </td>
 
