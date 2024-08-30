@@ -31,12 +31,12 @@ function App() {
             path="/"
             element={
               <>
-                <Banner /> <Movies handleAddToWatchList={handleAddToWatchList} handleRemoveFromWatchList={handleRemoveFromWatchList}/>
+                <Banner /> <Movies watchlist={watchlist} handleAddToWatchList={handleAddToWatchList} handleRemoveFromWatchList={handleRemoveFromWatchList}/>
               </>
             }
           />
 
-          <Route path="/watchlist" element={<WatchList />} />
+          <Route path="/watchlist" element={<WatchList watchlist={watchlist} />} />
         </Routes>
       </BrowserRouter>
     </>
