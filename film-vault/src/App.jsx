@@ -19,6 +19,7 @@ function App() {
     let filteredWatchList = watchlist.filter((movie) => {
       return movie.id != movieObj.id
     })
+    localStorage.setItem('moviesApp' , JSON.stringify(filteredWatchList))
     setwatchlist(filteredWatchList)
     console.log(filteredWatchList)
   }
@@ -45,7 +46,7 @@ function App() {
             }
           />
 
-          <Route path="/watchlist" element={<WatchList watchlist={watchlist} setwatchlist={setwatchlist} />} />
+          <Route path="/watchlist" element={<WatchList watchlist={watchlist} setwatchlist={setwatchlist} handleRemoveFromWatchList={handleRemoveFromWatchList} />}/>
         </Routes>
       </BrowserRouter>
     </>
