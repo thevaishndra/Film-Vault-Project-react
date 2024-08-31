@@ -1,27 +1,40 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-function WatchList({watchlist}) {
+import genreids from '../utility/genre'
+
+function WatchList({watchlist, setwatchlist}) {
   const [search, setSearch] = useState('')
 
-  let handleSearch = ()=> {
-
+  let handleSearch = (e)=> {
+    setSearch(e.target.value)
   }
 
+  let sortIncreasing = ()=> {
+    let sortedIncreasing = watchlist.sort((movieA, movieB) => {
+      return movieA.vote_average - movieB.vote_average
+    })
+    setwatchlist([...sortedIncreasing])
+  }
+  let sortDecreasing = ()=> {
+    let sortedDecreasing = watchlist.sort((movieA, movieB) => {
+      return movieB.vote_average - movieA.vote_average
+    })
+    setwatchlist([...sortedDecreasing])
+  }
 
+  useEffect(() => {
 
-
-
-
+  }, [watchlist])
 
   return (
     <>
     <div className='flex justify-center flex-wrap m-3'>
-      <div className='bg-blue-300 items-center flex justify-center h-[3rem] w-[8rem] rounded-xl text-white font-bold mx-4'>Comedy</div>
+      <div className='bg-blue-800 items-center flex justify-center h-[3rem] w-[8rem] rounded-xl text-white font-bold mx-4'>Comedy</div>
       <div className='bg-gray-300 items-center flex justify-center h-[3rem] w-[8rem] rounded-xl text-white font-bold'>Comedy</div>
     </div>
 
     <div className='flex justify-center my-4'>
-        <input type="text" placeholder='Search movies' className='h-[3rem] w-[18rem] bg-gray-100 outline-none px-4 rounded-sm' />
+        <input onChange={handleSearch} value={search} type="text" placeholder='Search movies' className='h-[3rem] w-[18rem] bg-gray-100 outline-none px-4 rounded-sm' />
     </div>
 
     <div className='overflow-hidden rounded-lg border border-gray-200 m-8'>
@@ -29,7 +42,11 @@ function WatchList({watchlist}) {
         <thead className='border-b-2'>
           <tr>
             <th>Name</th>
-            <th>Ratings</th>
+            <th className='flex justify-center'>
+              <div onClick={sortIncreasing} className='p-2' ><i className="bi bi-arrow-up"></i></div>
+            <div className='p-2' >Ratings</div>
+            <div onClick={sortDecreasing} className='p-2' ><i className="bi bi-arrow-down"></i></div>
+            </th>
             <th>Popularity</th>
             <th>Genre</th>
           </tr>
@@ -47,7 +64,7 @@ function WatchList({watchlist}) {
 
             <td>{movieObj.vote_average}</td>
             <td>{movieObj.popularity}</td>
-            <td>Sport/Musical</td>
+            <td>{genreids[movieObj.genre_ids[0]]}</td>
 
             <td className='text-red-800'>Delete</td>
           </tr>
