@@ -5,7 +5,7 @@ Overview
 The Movie Watchlist App is a React-based web application that allows users to browse popular movies, add them to a watchlist, and manage their list. The app fetches movie data from the TMDb API and provides a user-friendly interface for movie exploration and watchlist management.
 
 
-Features:-
+Features
 
 -Dynamic Banner: Displays a dynamic banner with a popular movie's backdrop image and title.
 
@@ -20,7 +20,7 @@ Features:-
 -Responsive Design: The app is designed to be responsive and looks great on various devices.
 
 
-Technologies Used:-
+Technologies Used
 
 -Frontend: React, Tailwind CSS
 
