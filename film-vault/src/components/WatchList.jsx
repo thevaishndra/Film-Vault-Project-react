@@ -40,8 +40,8 @@ function WatchList({watchlist, setwatchlist, handleRemoveFromWatchList}) {
     <>
     <div className='flex justify-center flex-wrap m-3'>
       {genreList.map((genre) => {
-        return <div onClick={() => handleFilter(genre)} className={ currGenre === genre? 'bg-blue-800 items-center flex justify-center h-[3rem] w-[8rem] rounded-xl text-white font-bold mx-4'
-           : 'bg-gray-300 items-center flex justify-center h-[3rem] w-[8rem] rounded-xl text-white font-bold mx-4'
+        return <div onClick={() => handleFilter(genre)} className={ currGenre === genre? 'bg-blue-800 items-center flex justify-center h-[3rem] w-[8rem] rounded-xl cursor-pointer text-white font-bold mx-4'
+           : 'bg-gray-300 items-center flex justify-center h-[3rem] w-[8rem] rounded-xl text-white font-bold mx-4 cursor-pointer'
         }>
           {genre}
           </div>
@@ -59,9 +59,9 @@ function WatchList({watchlist, setwatchlist, handleRemoveFromWatchList}) {
           <tr>
             <th>Name</th>
             <th className='flex justify-center'>
-              <div onClick={sortIncreasing} className='p-2' ><i className="bi bi-arrow-up"></i></div>
+              <div onClick={sortIncreasing} className='p-2 cursor-pointer' ><i className="bi bi-arrow-up"></i></div>
             <div className='p-2' >Ratings</div>
-            <div onClick={sortDecreasing} className='p-2' ><i className="bi bi-arrow-down"></i></div>
+            <div onClick={sortDecreasing} className='p-2 cursor-pointer' ><i className="bi bi-arrow-down"></i></div>
             </th>
             <th>Popularity</th>
             <th>Genre</th>
@@ -88,7 +88,7 @@ function WatchList({watchlist, setwatchlist, handleRemoveFromWatchList}) {
             <td>{movieObj.popularity}</td>
             <td>{genreids[movieObj.genre_ids[0]]}</td>
 
-            <td onClick={() => handleRemoveFromWatchList(movieObj)} className='text-red-800'>Delete</td>
+            <td ><div onClick={() => handleRemoveFromWatchList(movieObj)} className='bg-red-700 text-white rounded-md cursor-pointer'>Delete</div></td>
           </tr>
           })}
 
