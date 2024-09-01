@@ -1,4 +1,4 @@
-Movie Watchlist App
+Film Vault App
 
 Overview
 
