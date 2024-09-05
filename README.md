@@ -1,8 +1,8 @@
-Film Vault App
+Film Vault Web App
 
 Overview
 
-The Film Vault App is a React-based web application that allows users to browse popular movies, add them to a watchlist, and manage their list. The app fetches movie data from the TMDb API and provides a user-friendly interface for movie exploration and watchlist management.
+The Film Vault Web App is a React-based web application that allows users to browse popular movies, add them to a watchlist, and manage their list. The app fetches movie data from the TMDb API and provides a user-friendly interface for movie exploration and watchlist management.
 
 
 Features
