@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import Banner from "./components/Banner";
 import axios from 'axios';
 
-import { BrowserRouter, Routes, Route, BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Routes, Route, } from "react-router-dom";
 function App() {
   let [watchlist, setwatchlist] =useState([])
 
