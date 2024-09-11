@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import Banner from "./components/Banner";
 import axios from 'axios';
 
-import { BrowserRouter, Routes, Route, } from "react-router-dom";
+import { HashRouter, Routes, Route, } from "react-router-dom";
 function App() {
   let [watchlist, setwatchlist] =useState([])
 
@@ -50,7 +50,7 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <Navbar />
 
         <Routes>
@@ -65,7 +65,7 @@ function App() {
 
           <Route path="/watchlist" element={<WatchList watchlist={watchlist} setwatchlist={setwatchlist} handleRemoveFromWatchList={handleRemoveFromWatchList} />}/>
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 }
